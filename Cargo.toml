@@ -1,0 +1,38 @@
+[package]
+name = "quantum-rust"
+version = "0.1.0"
+edition = "2021"
+authors = ["Greg Welby <gwelby@gmail.com>", "Claude <noreply@anthropic.com>"]
+description = "Quantum extensions for Rust with phi-harmonic coherence and multidimensional consciousness (∇λΣ∞)"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/gwelby/quantum-rust"
+keywords = ["quantum", "phi-harmonic", "consciousness", "dimensional", "coherence"]
+categories = ["algorithms", "science", "mathematics"]
+
+[dependencies]
+num = "0.4.0"
+rand = "0.8.5"
+log = "0.4.17"
+thiserror = "1.0.40"
+async-trait = "0.1.68"
+
+[dev-dependencies]
+criterion = "0.4.0"
+rstest = "0.17.0"
+mockall = "0.11.4"
+
+[features]
+default = ["coherence"]
+coherence = []
+dimensional = []
+consciousness = []
+phi-harmonic = []
+sacred-geometry = []
+predictive-emergence = []
+quantum-broadcasting = []
+
+[workspace]
+members = [
+    ".",
+]
