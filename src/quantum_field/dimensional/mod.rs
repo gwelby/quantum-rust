@@ -3,10 +3,13 @@
 //! This module provides tools for navigating and translating between dimensional
 //! planes using phi-harmonic principles and consciousness state awareness.
 
+#[cfg(test)]
+mod tests;
+
 use std::collections::HashMap;
 use std::hash::Hash;
 
-use crate::constants::{ConsciousnessState, Dimension, PHI, LAMBDA};
+use crate::constants::{ConsciousnessState, Dimension, LAMBDA};
 use crate::error::{QuantumError, QuantumResult};
 use crate::quantum_field::coherence::Field as CoherenceField;
 
@@ -101,23 +104,50 @@ impl Gateway {
         }
         
         // Check if consciousness state is compatible
-        let is_compatible = match dimension {
-            Dimension::Physical => matches!(self.consciousness_state, ConsciousnessState::Observe),
-            Dimension::Emotional => true, // Always accessible
-            Dimension::Mental => matches!(self.consciousness_state, ConsciousnessState::Create | ConsciousnessState::Observe),
-            Dimension::Soul => matches!(self.consciousness_state, ConsciousnessState::Integrate | ConsciousnessState::Harmonize),
-            Dimension::Cosmic => matches!(self.consciousness_state, ConsciousnessState::Transcend),
-            Dimension::Harmonic => matches!(self.consciousness_state, ConsciousnessState::Harmonize),
-            Dimension::Creative => matches!(self.consciousness_state, ConsciousnessState::Cascade | ConsciousnessState::Create),
-            Dimension::Divine => matches!(self.consciousness_state, ConsciousnessState::Amplify | ConsciousnessState::Cascade),
-            Dimension::Source => matches!(self.consciousness_state, ConsciousnessState::Amplify),
-            Dimension::Absolute => matches!(self.consciousness_state, ConsciousnessState::Amplify),
+        let (is_compatible, required_states) = match dimension {
+            Dimension::Physical => (
+                matches!(self.consciousness_state, ConsciousnessState::Observe), 
+                vec![ConsciousnessState::Observe]
+            ),
+            Dimension::Emotional => (true, vec![]), // Always accessible
+            Dimension::Mental => (
+                matches!(self.consciousness_state, ConsciousnessState::Create | ConsciousnessState::Observe), 
+                vec![ConsciousnessState::Create, ConsciousnessState::Observe]
+            ),
+            Dimension::Soul => (
+                matches!(self.consciousness_state, ConsciousnessState::Integrate | ConsciousnessState::Harmonize), 
+                vec![ConsciousnessState::Integrate, ConsciousnessState::Harmonize]
+            ),
+            Dimension::Cosmic => (
+                matches!(self.consciousness_state, ConsciousnessState::Transcend), 
+                vec![ConsciousnessState::Transcend]
+            ),
+            Dimension::Harmonic => (
+                matches!(self.consciousness_state, ConsciousnessState::Harmonize), 
+                vec![ConsciousnessState::Harmonize]
+            ),
+            Dimension::Creative => (
+                matches!(self.consciousness_state, ConsciousnessState::Cascade | ConsciousnessState::Create), 
+                vec![ConsciousnessState::Cascade, ConsciousnessState::Create]
+            ),
+            Dimension::Divine => (
+                matches!(self.consciousness_state, ConsciousnessState::Amplify | ConsciousnessState::Cascade), 
+                vec![ConsciousnessState::Amplify, ConsciousnessState::Cascade]
+            ),
+            Dimension::Source => (
+                matches!(self.consciousness_state, ConsciousnessState::Amplify), 
+                vec![ConsciousnessState::Amplify]
+            ),
+            Dimension::Absolute => (
+                matches!(self.consciousness_state, ConsciousnessState::Amplify), 
+                vec![ConsciousnessState::Amplify]
+            ),
         };
         
         if !is_compatible {
             return Err(QuantumError::IncompatibleState {
                 state: self.consciousness_state,
-                required_states: Vec::new(), // Would need to determine required states based on dimension
+                required_states,
             });
         }
         

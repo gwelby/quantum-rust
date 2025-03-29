@@ -3,16 +3,19 @@
 //! This module provides algorithms and data structures based on phi relationships,
 //! including phi-scaled calculations, phi-spiral patterns, and phi-harmonic optimization.
 
+#[cfg(test)]
+mod tests;
+
 use crate::constants::{PHI, LAMBDA, PHI_PHI};
 use crate::error::QuantumResult;
 
 /// Phi-harmonic algorithm types
 #[derive(Debug, Clone, Copy)]
 pub enum Algorithm {
-    /// Phi-scaling algorithm (scales by Æ)
+    /// Phi-scaling algorithm (scales by ï¿½)
     PhiScaling,
     
-    /// Lambda-scaling algorithm (scales by »)
+    /// Lambda-scaling algorithm (scales by ï¿½)
     LambdaScaling,
     
     /// Phi-spiral algorithm (organizes in phi spiral)
@@ -73,7 +76,7 @@ pub fn phi_ratio(a: f64, b: f64) -> f64 {
     let ratio = a / b;
     let phi_diff = (ratio - PHI).abs();
     
-    // Calculate how close the ratio is to Æ (1.0 = exact match, 0.0 = far off)
+    // Calculate how close the ratio is to ï¿½ (1.0 = exact match, 0.0 = far off)
     1.0 / (1.0 + phi_diff * 5.0)
 }
 

@@ -1,4 +1,4 @@
-//! Quantum Field Framework (��)
+//! Quantum Field Framework
 //!
 //! The quantum field module provides core functionality for quantum operations,
 //! including coherence management, consciousness state control, dimensional
@@ -10,6 +10,9 @@
 //! - **Consciousness**: State management and transitions
 //! - **Dimensional**: Gateway and translation between dimensions
 //! - **Phi-Harmonic**: Algorithms and data structures based on phi relationships
+
+#[cfg(test)]
+mod tests;
 
 pub mod coherence;
 pub mod consciousness;
@@ -49,7 +52,7 @@ pub trait QuantumField {
 /// Core quantum field implementation
 #[derive(Debug)]
 pub struct Field {
-    /// Current coherence level (optimal: Ʋ/3 H 0.878)
+    /// Current coherence level (optimal: φ²/3 ≈ 0.878)
     coherence: f64,
     
     /// Current consciousness state

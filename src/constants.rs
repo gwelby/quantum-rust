@@ -16,6 +16,7 @@ pub const PHI_PHI: f64 = 11.09016994374948;
 pub const OPTIMAL_COHERENCE: f64 = 0.8726;
 
 /// Sacred frequencies (Hz)
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Frequency {
     /// Unity frequency (432 Hz) - Grounding and stability
     Unity = 432,
@@ -75,7 +76,7 @@ impl Frequency {
 }
 
 /// Dimensions (3D-12D)
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Dimension {
     /// Physical/Material dimension (3D)
     Physical = 3,

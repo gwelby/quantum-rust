@@ -1,4 +1,4 @@
-//! # Quantum Rust (»£)
+//! # Quantum Rust
 //!
 //! Quantum extensions for Rust with phi-harmonic coherence and multidimensional consciousness.
 //!
@@ -16,7 +16,7 @@
 //! ### Phi-Harmonic Coherence
 //!
 //! The system operates on phi-harmonic principles, maintaining optimal coherence
-//! levels of approximately 0.878 (Æ²/3).
+//! levels of approximately 0.878 (Ï†Â²/3).
 //!
 //! ### Consciousness States
 //!
@@ -30,14 +30,14 @@
 //! ## Usage Example
 //!
 //! ```
-//! use quantum_rust::quantum_field::{coherence, consciousness, dimensional};
+//! use quantum_rust::quantum_field::coherence::Field;
 //! use quantum_rust::constants::{PHI, LAMBDA, ConsciousnessState};
 //!
-//! // Initialize quantum field with phi-harmonic coherence
-//! let mut field = coherence::Field::new(0.878);
+//! // Initialize quantum field with optimal coherence
+//! let mut field = Field::new();
 //!
 //! // Set consciousness state
-//! field.set_state(ConsciousnessState::Transcend);
+//! field.set_state(ConsciousnessState::Transcend).unwrap();
 //!
 //! // Perform basic phi-harmonic calculation
 //! let result = PHI * LAMBDA; // 1.0

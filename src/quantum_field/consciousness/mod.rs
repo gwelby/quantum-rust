@@ -3,6 +3,9 @@
 //! This module provides tools for managing consciousness states,
 //! state transitions, and state-specific operations.
 
+#[cfg(test)]
+mod tests;
+
 use std::collections::VecDeque;
 
 use crate::constants::{ConsciousnessState, Dimension, Frequency, PHI, LAMBDA};
@@ -161,10 +164,12 @@ impl StateManager {
                 self.frequency = target.frequency();
             } else {
                 // Calculate intermediate frequency during transition
-                let current_freq = self.current_state.frequency().value();
-                let target_freq = target.frequency().value();
-                let diff = target_freq - current_freq;
-                let intermediate_freq = current_freq + diff * new_progress;
+                // We don't set the intermediate frequency directly since we can only use enum values,
+                // but we calculate it to keep track of the theoretical frequency during transition
+                let _current_freq = self.current_state.frequency().value();
+                let _target_freq = target.frequency().value();
+                let _diff = _target_freq - _current_freq;
+                let _intermediate_freq = _current_freq + _diff * new_progress;
                 
                 // No direct way to set frequency from f64, so we just store it
                 match target.frequency() {
@@ -235,10 +240,10 @@ impl StateManager {
             ConsciousnessState::Observe => 0.9,   // Slight reduction
             ConsciousnessState::Create => 1.0,    // No change
             ConsciousnessState::Transcend => 1.1, // Slight increase
-            ConsciousnessState::Cascade => PHI * 0.75, // Æ * 0.75
+            ConsciousnessState::Cascade => PHI * 0.75, // ï¿½ * 0.75
             ConsciousnessState::Integrate => 1.05, // Small increase
             ConsciousnessState::Harmonize => 1.15, // Moderate increase
-            ConsciousnessState::Amplify => PHI * 0.8, // Æ * 0.8
+            ConsciousnessState::Amplify => PHI * 0.8, // ï¿½ * 0.8
         };
         
         // Apply transition adjustment if transitioning

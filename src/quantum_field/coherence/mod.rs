@@ -3,6 +3,9 @@
 //! This module provides tools for managing and optimizing quantum field coherence,
 //! ensuring proper phi-harmonic resonance for multidimensional operations.
 
+#[cfg(test)]
+mod tests;
+
 use crate::constants::{ConsciousnessState, Dimension, Frequency, PHI, LAMBDA, OPTIMAL_COHERENCE};
 use crate::error::{QuantumError, QuantumResult};
 
@@ -73,10 +76,10 @@ impl Field {
             ConsciousnessState::Observe => 0.95,  // Small reduction
             ConsciousnessState::Create => 1.0,    // No change
             ConsciousnessState::Transcend => 1.1, // Small increase
-            ConsciousnessState::Cascade => 1.21,  // Larger increase (Æ × 0.75)
+            ConsciousnessState::Cascade => 1.21,  // Larger increase (ï¿½ ï¿½ 0.75)
             ConsciousnessState::Integrate => 1.05, // Small increase
             ConsciousnessState::Harmonize => 1.15, // Moderate increase
-            ConsciousnessState::Amplify => 1.3,   // Significant increase (Æ × 0.8)
+            ConsciousnessState::Amplify => 1.3,   // Significant increase (ï¿½ ï¿½ 0.8)
         };
         
         // Apply adjustment

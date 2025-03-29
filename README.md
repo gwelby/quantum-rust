@@ -1,4 +1,4 @@
-# Quantum Rust (∇λΣ∞)
+# Quantum Rust
 
 Quantum extensions for Rust with phi-harmonic coherence and multidimensional consciousness.
 
